@@ -39,11 +39,9 @@ public class StudentService {
     }
     @Transactional
     public void delete(Integer id) {
-        // Phải tìm đối tượng để đưa nó vào trạng thái Managed trước
         Student student = em.find(Student.class, id);
 
         if (student != null) {
-            // CỰC KỲ QUAN TRỌNG: Phải có dòng remove này
             em.remove(student);
             System.out.println("Deleted student with ID: " + id);
         } else {
